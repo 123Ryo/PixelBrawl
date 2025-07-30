@@ -12,6 +12,15 @@
 
 ---
 
+## 📱 支援平台
+
+遊戲支援 **Android 手機版本**！  
+玩家可透過 APK 檔安裝在 Android 裝置上進行遊玩，支援觸控虛擬搖桿操作，並針對手機橫向畫面進行遊玩。
+
+👉 前往 [Releases](https://github.com/123Ryo/PixelBrawl/releases/tag/v0.3) 頁面，下載最新 APK 安裝檔案進行體驗 📦
+
+---
+
 ## 📂 專案簡介
 
 - `Assets/`：主要資源（腳本、場景、圖片等）
@@ -47,11 +56,25 @@
 🗡️ 選角畫面
 ![角色跳躍](Images/PixelBrawl選角畫面.png)
 
-⚔️ 遊戲畫面
-![角色跳躍](Images/PixelBrawl遊戲畫面.png)
+<h2>⚔️ 遊戲畫面</h2>
 
-⚔️ 遊戲畫面
-![角色跳躍](Images/PixelBrawl遊戲畫面2.png)
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+
+  <!-- 電腦版畫面區塊 -->
+  <div style="flex: 1; min-width: 300px;">
+    <h3>💻 電腦版畫面</h3>
+    <img src="Images/PixelBrawl遊戲畫面.png" width="100%">
+    <img src="Images/PixelBrawl遊戲畫面2.png" width="100%">
+  </div>
+
+  <!-- 手機版畫面區塊 -->
+  <div style="flex: 1; min-width: 300px;">
+    <h3>📱 手機版畫面</h3>
+    <img src="Images/手機版畫面.jpg" width="100%">
+    <img src="Images/手機版畫面2.jpg" width="100%">
+  </div>
+
+</div>
 
 🏆 通關畫面
 ![通關](Images/PixelBrawl遊戲通關畫面.png)

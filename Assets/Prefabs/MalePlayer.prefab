@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  moveJoystick: {fileID: 0}
   maxHealth: 1000
   healthBar: {fileID: 6953462691377415291}
 --- !u!54 &1347316339772459041

@@ -18,11 +18,11 @@ public class AttackController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public LayerMask enemyLayerMask;
 
     [Header("攻擊音效設定")]
-    public AudioClip attackSound;  // ← ✅ 新增音效檔
-    private AudioSource audioSource;  // ← ✅ 播放器
+    public AudioClip attackSound;  // 新增音效檔
+    private AudioSource audioSource;  //  播放器
 
     [Header("攻擊特效（Prefab）")]
-    public GameObject slashEffectPrefab;  // ✅ 攻擊時的斬擊特效
+    public GameObject slashEffectPrefab;  //  攻擊時的斬擊特效
 
     private bool isHolding = false;
     private Animator playerAnimator;
@@ -39,7 +39,7 @@ public class AttackController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         if (playerTransform != null)
             playerAnimator = playerTransform.GetComponent<Animator>();
 
-        // ✅ 初始化音效播放器
+        //  初始化音效播放器
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -89,7 +89,7 @@ public class AttackController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     private void PerformAttack(Vector3 dir)
     {
-        // ✅ 若 Animator 尚未初始化，則自動補抓一次
+        // 若 Animator 尚未初始化，則自動補抓一次
         if (playerAnimator == null && playerTransform != null)
         {
             playerAnimator = playerTransform.GetComponentInChildren<Animator>();
@@ -102,13 +102,13 @@ public class AttackController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         Debug.Log("🎯 執行攻擊！方向：" + dir);
         playerAnimator?.SetTrigger("Attack");
 
-        // ✅ 播放音效（只要有音效檔）
+        //  播放音效（只要有音效檔）
         if (attackSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(attackSound);
         }
 
-        // ✅ 產生斬擊特效
+        //  產生斬擊特效
         if (slashEffectPrefab != null && playerTransform != null)
         {
             Vector3 spawnPos = playerTransform.position + dir * 1f + Vector3.up * 1f;

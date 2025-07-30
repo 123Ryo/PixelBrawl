@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
     [Header("移動設定")]
     public float moveSpeed = 5f;
 
+    [Header("虛擬搖桿（可選）")]
+    public FixedJoystick moveJoystick; // 新增虛擬搖桿參考
+
     [Header("血量設定")]
     public float maxHealth = 1000f;
     private float currentHealth;
@@ -30,20 +33,29 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        //  移動輸入處理：搖桿優先，若無搖桿則使用鍵盤
+        float moveX = 0f;
+        float moveZ = 0f;
+
+        if (moveJoystick != null)
+        {
+            //  使用虛擬搖桿輸入（手機版）
+            moveX = moveJoystick.Horizontal;
+            moveZ = moveJoystick.Vertical;
+        }
+        else
+        {
+            //  鍵盤輸入（電腦版）
+            moveX = Input.GetAxis("Horizontal");
+            moveZ = Input.GetAxis("Vertical");
+        }
 
         Vector3 move = new Vector3(moveX, 0, moveZ).normalized;
 
         rb.MovePosition(transform.position + move * moveSpeed * Time.deltaTime);
 
+        // 🎞 設定動畫速度
         animator.SetFloat("Speed", move.magnitude);
-
-        // ✅ ❌ 這段移除（避免搶走攻擊方向控制）
-        // if (move != Vector3.zero)
-        // {
-        //     transform.forward = move;
-        // }
 
         // 測試動畫（H 鍵）
         if (Input.GetKeyDown(KeyCode.H))
